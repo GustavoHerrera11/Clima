@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="Clima">
+	<head>
+		<title>Wheater Web</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body ng-controller="Wheather">
+		<div class="container">
+			<div class="row">
+				<h1>Clima de tu pais</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6" ng-repeat="Temp in Temperatura">
+					<p>{{Temp.name}}</p>
+					
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+		</div>
+
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>
