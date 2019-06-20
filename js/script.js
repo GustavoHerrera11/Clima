@@ -1,16 +1,14 @@
 
 var Clima = angular.module("Clima",[])
 
-Clima.controller("Wheater",function($srootScope, $scope, $http){
+Clima.controller("Wheater",function($rootScope, $scope, $http){
 
-	$scope.Temperatura = [];
+	$scope.Tempreatura=[];
 
-	for(var i = 0; i < 100; i++) {
-		$http({
-			method: "GET",
-			url: "https://api.openweathermap.org/data/2.5/city"+i
-		}).then(function callbacksucces(y){
-			$scope.Temperatura.push(y)
-		})
-	}
+	$http({
+		method:"GET",
+		url:"http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=9591c913209303ea1fa78ed8a9ae5d12"
+	}).then(function (snapshot){
+		console.log(snapshot.data.name)
+	})
 })
