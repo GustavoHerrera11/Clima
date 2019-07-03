@@ -1,22 +1,129 @@
 <!DOCTYPE html>
 <html ng-app="Clima">
 	<head>
+		<!-- Idioma -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximus-scale=1.0, minimus-scale=1.0">
 		<title>Wheater Web</title>
+		<!-- Enlace de Bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Enlace de JQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- Enlace de style.css -->
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/fonts.css">
 	</head>
+	<!-- Controlador de script.js -->
 	<body ng-controller="Wheater">
+		<header>
+			<div class="menu_bar">
+				<a href="#" class="bt-menu"><span class="icon-menu"></span>Menu</a>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="index.html"><span class="icon-home"></span>Inicio</a></li>
+					<li><a href="mapa.html"><span class="icon-location"></span>Mapa</a></li>
+				</ul>
+			</nav>
+		</header>
+		<!-- Primer Contenedor -->
 		<div class="container">
 			<div class="row">
-				<h1>Clima de tu pais</h1>
+				<!-- Titulo General -->
+				<h1 class="Ciudad">Clima de tu pais</h1>
 			</div>
-			<div class="row"></div>
+			<div class="row">
+				<div class="col-md-4" ng-repeat="Temp in Temperatura">
+					<!-- Datos generales de la ciudad -->
+					<p><b class="Nombre">{{Temp.data.name}}</b> <br> <b class="Generales">{{Temp.data.sys.country}} <br>{{Temp.data.id}}</b></p>
+				</div>
+				<!-- Coordenadas de la ciudad -->
+				<div class="col-md-4" ng-repeat="Temp in Temperatura">
+					<p><b class="Nombre">Coordenadas</b></p>
+					<p class="Generales"><b>Lon:</b> {{Temp.data.coord.lon}} °<br> <b>Lat:</b> {{Temp.data.coord.lat}} °</p>
+				</div>
+				<div class="col-md-4" ng-repeat="Temp in Temperatura">
+					<p class="Generales"><b>Humedad:  </b>{{Temp.data.main.humidity}}%</p>
+					<p class="Generales"><b>Presión:  </b>{{Temp.data.main.pressure}}hpa</p>
+					<p class="Generales"><b>Nubosidad:  </b>{{Temp.data.clouds.all}}%</p>
+					<p class="Generales"><b>Velocidad del Viento:  </b>{{Temp.data.wind.speed}} m/s</p>
+					<p class="Generales"><b>Temperatura:  </b>{{Temp.data.main.temp}}<b> °C</b></p>
+					<p class="Generales"><b>Máxima:  </b>{{Temp.data.main.temp_max}}<b> °C</b></p>
+					<p class="Generales"><b>Mínima:  </b>{{Temp.data.main.temp_min}}<b> °C</b></p>
+					<p class="Generales"><b>Predicción:  </b>{{Temp.data.weather[0].main}}<b> , </b> {{Temp.data.weather[0].description}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12" ng-repeat="Temp in Temperatura">
+					<img class="img-responsive" src="http://openweathermap.org/img/w/{{Temp.data.weather[0].icon}}.png">
+				</div>
+			</div>
+		</div>
+		<br><br><br>
+		<div class="container">
+			<div class="row">
+				<h1 class="Ciudad">Departamentos</h1>
+			</div>
+			<br>
+			<br>
+			<div class="row">
+				<div class="col-md-4" ng-repeat="Rosa in San">
+					<p class="Generales"><b class="Nombre">{{Rosa.data.name}}</b> <br> <b>{{Rosa.data.sys.country}} <br>{{Rosa.data.id}}</b></p>
+				</div>
+				<div class="col-md-4" ng-repeat="Rosa in San">
+					<p class="Generales"><b>Coordenadas</b></p>
+					<p class="Generales"><b>Lon:</b> {{Rosa.data.coord.lon}} °<br> <b>Lat:</b> {{Rosa.data.coord.lat}} °</p>
+				</div>
+				<div class="col-md-4" ng-repeat="Rosa in San">
+					<p class="Generales"><b>Humedad:  </b>{{Rosa.data.main.humidity}}%</p>
+					<p class="Generales"><b>Presión:  </b>{{Rosa.data.main.pressure}}hpa</p>
+					<p class="Generales"><b>Nubosidad:  </b>{{Rosa.data.clouds.all}}%</p>
+					<p class="Generales"><b>Velocidad del Viento:  </b>{{Rosa.data.wind.speed}} m/s</p>
+					<p class="Generales"><b>Temperatura:  </b>{{Rosa.data.main.temp}}<b> °C</b></p>
+					<p class="Generales"><b>Máxima:  </b>{{Rosa.data.main.temp_max}}<b> °C</b></p>
+					<p class="Generales"><b>Mínima:  </b>{{Rosa.data.main.temp_min}}<b> °C</b></p>
+					<p class="Generales"><b>Predicción:  </b>{{Rosa.data.weather[0].main}}<b> , </b> {{Rosa.data.weather[0].description}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12" ng-repeat="Rosa in San">
+					<img clas="img-responsive" src="http://openweathermap.org/img/w/{{Rosa.data.weather[0].icon}}.png">
+				</div>
+			</div>
+		</div>
+		<br><br><br>
+		<div class="container">
+			<br>
+			<div class="row">
+				<div class="col-md-4" ng-repeat="Agua in de">
+					<p class="Generales"><b class="Nombre">{{Agua.data.name}}</b> <br>{{Agua.data.id}}</p>
+				</div>
+				<div class="col-md-4" ng-repeat="Agua in de">
+					<p class="Generales"><b>Coordenadas</b></p>
+					<p class="Generales"><b>Lon:</b> {{Agua.data.coord.lon}} °<br> <b>Lat:</b> {{Agua.data.coord.lat}} °</p>
+				</div>
+				<div class="col-md-4" ng-repeat="Agua in de">
+					<p class="Generales"><b>Humedad:  </b>{{Agua.data.main.humidity}}%</p>
+					<p class="Generales"><b>Presión:  </b>{{Agua.data.main.pressure}}hpa</p>
+					<p class="Generales"><b>Nubosidad:  </b>{{Agua.data.clouds.all}}%</p>
+					<p class="Generales"><b>Velocidad del Viento:  </b>{{Agua.data.wind.speed}} m/s</p>
+					<p class="Generales"><b>Temperatura:  </b>{{Agua.data.main.temp}}<b> °C</b></p>
+					<p class="Generales"><b>Máxima:  </b>{{Agua.data.main.temp_max}}<b> °C</b></p>
+					<p class="Generales"><b>Mínima:  </b>{{Agua.data.main.temp_min}}<b> °C</b></p>
+					<p class="Generales"><b>Predicción:  </b>{{Agua.data.weather[0].main}}<b> , </b> {{Agua.data.weather[0].description}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12" ng-repeat="Agua in de">
+					<img class="img-responsive" src="http://openweathermap.org/img/w/{{Agua.data.weather[0].icon}}.png">
+				</div>
+			</div>
 		</div>
 
 
-
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
 		<script src="js/script.js"></script>
+		<script src="js/Menu.js"></script>
 	</body>
 </html>
